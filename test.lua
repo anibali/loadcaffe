@@ -1,6 +1,15 @@
 require 'loadcaffe'
 
-prototxt_name = '/home/zagoruys/deploy.prototxt'
-binary_name = '/home/zagoruys/bvlc_reference_caffenet.caffemodel'
+print('# TEST 1: caffenet')
 
-model = loadcaffe.load(prototxt_name, binary_name, 'ccn2')
+local prototxt_name = './models/caffenet/deploy.prototxt'
+local binary_name = './models/caffenet/bvlc_reference_caffenet.caffemodel'
+
+local model = loadcaffe.load(prototxt_name, binary_name, 'nn')
+
+print('# TEST 2: dilation')
+
+local prototxt_name = './models/dilation/dilation8_pascal_voc_deploy.prototxt'
+local binary_name = './models/dilation/dilation8_pascal_voc.caffemodel'
+
+local model = loadcaffe.load(prototxt_name, binary_name, 'cudnn')
